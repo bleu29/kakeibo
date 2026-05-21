@@ -29,13 +29,18 @@ body{background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:84px
 .header .sub{font-size:13px;color:var(--text2);margin-top:2px;}
 .card{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:12px;}
 .card-title{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);margin-bottom:12px;}
-.big-num{font-size:36px;font-weight:700;letter-spacing:-1px;line-height:1;}
+.big-num{font-size:34px;font-weight:700;letter-spacing:-1px;line-height:1;}
 .big-num.danger{color:var(--danger);}.big-num.warn{color:var(--warn);}.big-num.ok{color:var(--ok);}.big-num.accent{color:var(--accent);}
 .pill{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:600;}
 .pill.danger{background:rgba(224,82,82,0.15);color:var(--danger);}
 .pill.warn{background:rgba(224,140,82,0.15);color:var(--warn);}
 .pill.ok{background:rgba(82,200,130,0.15);color:var(--ok);}
+.pill.gray{background:rgba(255,255,255,0.08);color:var(--text2);}
 .pill-dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;}
+.stat-card{background:var(--bg3);border-radius:var(--radius-sm);padding:12px;}
+.stat-label{font-size:11px;color:var(--text3);margin-bottom:6px;}
+.stat-val{font-size:20px;font-weight:700;letter-spacing:-0.5px;}
 .week-bar-wrap{margin:12px 0 6px;}
 .week-bar-bg{background:var(--bg3);border-radius:4px;height:8px;overflow:hidden;}
 .week-bar-fill{height:100%;border-radius:4px;transition:width 0.4s;background:var(--ok);}
@@ -43,8 +48,9 @@ body{background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:84px
 .week-bar-fill.danger{background:var(--danger);}
 .week-bar-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--text3);margin-top:5px;}
 label{display:block;font-size:12px;color:var(--text2);margin-top:14px;margin-bottom:5px;}
-input,select{width:100%;background:var(--bg3);border:0.5px solid var(--border2);color:var(--text);font-size:16px;padding:11px 12px;border-radius:var(--radius-sm);-webkit-appearance:none;appearance:none;}
-input:focus,select:focus{outline:none;border-color:var(--accent);}
+input,select,textarea{width:100%;background:var(--bg3);border:0.5px solid var(--border2);color:var(--text);font-size:16px;padding:11px 12px;border-radius:var(--radius-sm);-webkit-appearance:none;appearance:none;}
+textarea{min-height:100px;font-family:ui-monospace,monospace;font-size:13px;}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);}
 select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23999' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;}
 .btn{width:100%;padding:14px;border-radius:var(--radius-sm);font-size:16px;font-weight:600;cursor:pointer;border:none;margin-top:14px;transition:opacity 0.15s,transform 0.1s;}
 .btn:active{transform:scale(0.98);opacity:0.85;}
@@ -67,6 +73,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 .month-tag{font-size:11px;padding:3px 8px;border-radius:4px;background:var(--bg3);color:var(--text2);}
 .month-tag.neg{background:rgba(224,82,82,0.1);color:var(--danger);}
 .month-tag.pos{background:rgba(82,200,130,0.1);color:var(--ok);}
+.month-tag.maybe{background:rgba(224,140,82,0.1);color:var(--warn);}
 .sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
 .sec-head h2{font-size:18px;font-weight:700;}
 .sec-head .total{font-size:13px;color:var(--text2);}
@@ -75,11 +82,15 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 .alert{padding:12px 14px;border-radius:var(--radius-sm);margin-bottom:12px;font-size:13px;line-height:1.5;}
 .alert.danger{background:rgba(224,82,82,0.12);color:#ff8a8a;border:0.5px solid rgba(224,82,82,0.3);}
 .alert.warn{background:rgba(224,140,82,0.12);color:#ffb87a;border:0.5px solid rgba(224,140,82,0.3);}
+.alert.ok{background:rgba(82,200,130,0.12);color:#7aeaa8;border:0.5px solid rgba(82,200,130,0.3);}
 .export-area{font-size:11px;background:var(--bg3);border-radius:var(--radius-sm);padding:12px;font-family:monospace;white-space:pre-wrap;word-break:break-all;color:var(--text2);max-height:200px;overflow-y:auto;margin-top:12px;}
 .row{display:flex;gap:10px;}.row>*{flex:1;}
 .ring-wrap{position:relative;width:80px;height:80px;}
 .ring-wrap svg{position:absolute;top:0;left:0;transform:rotate(-90deg);}
 .ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:11px;font-weight:700;text-align:center;line-height:1.2;}
+.note{font-size:11px;color:var(--text3);line-height:1.5;margin-top:8px;}
+.scenario-row{display:flex;justify-content:space-between;align-items:center;margin-top:4px;gap:8px;}
+.scenario-val{font-size:13px;}
 </style>
 </head>
 <body>
@@ -91,12 +102,23 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 
 <!-- TODAY -->
 <div class="page active" id="page-today">
+  <div class="grid2">
+    <div class="stat-card">
+      <div class="stat-label">口座残高</div>
+      <div class="stat-val" id="bankNow">—</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">手元現金</div>
+      <div class="stat-val" id="cashNow">—</div>
+    </div>
+  </div>
+
   <div class="card">
     <div class="card-title">今日の上限</div>
     <div style="display:flex;align-items:center;justify-content:space-between;">
       <div>
         <div class="big-num accent">2,500円</div>
-        <div style="font-size:13px;color:var(--text2);margin-top:6px;">1日の目安</div>
+        <div style="font-size:13px;color:var(--text2);margin-top:6px;">余りは翌日に上乗せしない</div>
       </div>
       <div class="ring-wrap">
         <svg width="80" height="80" viewBox="0 0 80 80">
@@ -132,16 +154,29 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     <input id="spendDate" type="date">
     <label>金額</label>
     <input id="spendAmount" type="number" inputmode="numeric" placeholder="0">
-    <label>分類</label>
-    <select id="spendCategory">
-      <option value="🍱">🍱 生存（食事・日用品）</option>
-      <option value="🔒">🔒 固定費</option>
-      <option value="💬">💬 応答（交際・ギフト）</option>
-      <option value="✈️">✈️ 立替（出張）</option>
-      <option value="📈">📈 投資・学習</option>
-      <option value="🙏">🙏 信仰・献金</option>
-      <option value="🔥">🔥 浪費</option>
-    </select>
+    <div class="row">
+      <div>
+        <label>分類</label>
+        <select id="spendCategory">
+          <option value="🍱 生存">🍱 生存</option>
+          <option value="🔒 固定費">🔒 固定費</option>
+          <option value="💬 応答">💬 応答</option>
+          <option value="✈️ 立替">✈️ 立替</option>
+          <option value="📈 投資">📈 投資</option>
+          <option value="🙏 信仰/献金">🙏 信仰/献金</option>
+          <option value="🔥 浪費">🔥 浪費</option>
+        </select>
+      </div>
+      <div>
+        <label>支払い方法</label>
+        <select id="spendMethod">
+          <option>現金</option>
+          <option>デビット</option>
+          <option>クレカ</option>
+          <option>その他</option>
+        </select>
+      </div>
+    </div>
     <label>メモ</label>
     <input id="spendMemo" placeholder="例：学食、カフェ、外食">
     <button class="btn btn-primary" onclick="addSpend()">追加する</button>
@@ -149,8 +184,20 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   </div>
 
   <div class="card">
+    <div class="card-title">現金引き出し</div>
+    <div class="note">ATM引き出しを記録。口座残高が減り、手元現金が増えます。</div>
+    <label>日付</label>
+    <input id="cashDate" type="date">
+    <label>引き出し額</label>
+    <input id="cashAmount" type="number" inputmode="numeric" placeholder="0">
+    <label>メモ</label>
+    <input id="cashMemo" placeholder="例：献金用、公共施設用">
+    <button class="btn btn-secondary" onclick="addCashMove()">記録する</button>
+  </div>
+
+  <div class="card">
     <div class="sec-head">
-      <h2>支出履歴</h2>
+      <h2>履歴</h2>
       <div class="total" id="spendTotal"></div>
     </div>
     <div id="spendList"><div class="empty">まだ記録がありません</div></div>
@@ -162,11 +209,11 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   <div id="simAlerts"></div>
   <div class="card">
     <div class="sec-head"><h2>給与サイクル別</h2></div>
-    <div style="font-size:11px;color:var(--text3);margin-bottom:12px;">毎月20日給料日 → 翌月19日までの残高予測</div>
+    <div class="note" style="margin-bottom:12px;">毎月20日給料日〜翌月19日。通常＝確定＋高確率。最悪＝未確定も全部。</div>
     <div id="monthList"></div>
   </div>
   <div class="card">
-    <div class="card-title">次の支払い・イベント</div>
+    <div class="card-title">次の支払い・返金</div>
     <div id="nextPayList"></div>
   </div>
 </div>
@@ -181,15 +228,27 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     <input id="evName" placeholder="例：楽天カード、出張立替">
     <label>金額</label>
     <input id="evAmount" type="number" inputmode="numeric" placeholder="0">
-    <label>種類</label>
-    <select id="evType">
-      <option>カード請求</option>
-      <option>イベント</option>
-      <option>立替（後で戻る）</option>
-      <option>返金</option>
-    </select>
+    <div class="row">
+      <div>
+        <label>種類</label>
+        <select id="evType">
+          <option>カード請求</option>
+          <option>イベント</option>
+          <option>立替（後で戻る）</option>
+          <option>返金</option>
+          <option>臨時収入</option>
+        </select>
+      </div>
+      <div>
+        <label>確度</label>
+        <select id="evCertainty">
+          <option>確定</option>
+          <option>高確率</option>
+          <option>未確定</option>
+        </select>
+      </div>
+    </div>
     <button class="btn btn-primary" onclick="addEvent()">追加する</button>
-    <button class="btn btn-secondary" onclick="resetEvents()" style="margin-top:8px;">初期データに戻す</button>
   </div>
   <div class="card">
     <div class="sec-head"><h2>登録済み</h2></div>
@@ -220,10 +279,14 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     <div class="card-title">基本設定</div>
     <label>月給（手取り）</label>
     <input id="salaryInput" type="number" inputmode="numeric" placeholder="235000">
-    <label>現在の口座残高</label>
+    <label>口座残高</label>
     <input id="balanceInput" type="number" inputmode="numeric" placeholder="96482">
+    <label>手元現金</label>
+    <input id="cashInput" type="number" inputmode="numeric" placeholder="0">
     <label>週予算上限</label>
     <input id="weekBudgetInput" type="number" inputmode="numeric" placeholder="15000">
+    <label>月の生活費予算</label>
+    <input id="livingBudgetInput" type="number" inputmode="numeric" placeholder="60000">
     <button class="btn btn-primary" onclick="saveSettings()">保存する</button>
     <div class="divider"></div>
     <div class="card-title">データ管理</div>
@@ -232,7 +295,7 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     <button class="btn btn-secondary" onclick="showImport()" style="margin-top:8px;">インポート（復元）</button>
     <div id="importArea" style="display:none;">
       <label>JSONを貼り付け</label>
-      <textarea id="importText" style="width:100%;background:var(--bg3);border:0.5px solid var(--border2);color:var(--text);padding:10px;border-radius:var(--radius-sm);font-size:13px;font-family:monospace;min-height:100px;margin-top:5px;"></textarea>
+      <textarea id="importText"></textarea>
       <button class="btn btn-primary" onclick="importData()" style="margin-top:8px;">インポート実行</button>
     </div>
   </div>
@@ -259,14 +322,19 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 </nav>
 
 <script>
-const yen = n => (Math.round(n)||0).toLocaleString('ja-JP')+'円';
-const yenS = n => (n>=0?'':'-')+Math.abs(Math.round(n)||0).toLocaleString('ja-JP')+'円';
+const yen = n => (Math.round(Number(n))||0).toLocaleString('ja-JP')+'円';
+const yenS = n => (Number(n)>=0?'':'-')+Math.abs(Math.round(Number(n))||0).toLocaleString('ja-JP')+'円';
 const now = new Date();
+const todayISO = () => now.toISOString().slice(0,10);
+const ym = d => d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0');
+const thisMonthKey = () => ym(now);
 
 document.getElementById('todayDate').textContent =
   now.getFullYear()+'年'+(now.getMonth()+1)+'月'+now.getDate()+'日（'+'日月火水木金土'[now.getDay()]+'）';
 document.getElementById('spendDate').valueAsDate = now;
+document.getElementById('cashDate').valueAsDate = now;
 
+// ---- デフォルト
 const defaultFixed = [
   {id:1,name:'家賃',amount:61711,icon:'🏠'},
   {id:2,name:'光熱費',amount:10000,icon:'💡'},
@@ -278,15 +346,15 @@ const defaultFixed = [
   {id:8,name:'公共施設（現金）',amount:2000,icon:'🏊'},
   {id:9,name:'美容院積立',amount:5000,icon:'✂️'},
 ];
-const defaultSettings = {salary:235000,balance:96482,weekBudget:15000};
+const defaultSettings = {salary:235000,balance:96482,cash:0,weekBudget:15000,livingBudget:60000};
 const defaultEvents = [
-  {id:101,month:'2026-06',name:'楽天カード',amount:0,type:'カード請求'},
-  {id:102,month:'2026-07',name:'分割払い',amount:33000,type:'カード請求'},
-  {id:103,month:'2026-08',name:'分割払い',amount:33000,type:'カード請求'},
-  {id:104,month:'2026-08',name:'京都出張立替',amount:60000,type:'立替（後で戻る）'},
-  {id:105,month:'2026-09',name:'富山→東京出張立替',amount:90000,type:'立替（後で戻る）'},
-  {id:106,month:'2026-09',name:'モンゴル仮予算',amount:120000,type:'イベント'},
-  {id:107,month:'2026-11',name:'別府・黒川温泉',amount:30000,type:'イベント'},
+  {id:101,month:'2026-06',name:'楽天カード',amount:0,type:'カード請求',certainty:'確定'},
+  {id:102,month:'2026-07',name:'分割払い',amount:33000,type:'カード請求',certainty:'確定'},
+  {id:103,month:'2026-08',name:'分割払い',amount:33000,type:'カード請求',certainty:'確定'},
+  {id:104,month:'2026-08',name:'京都出張立替',amount:60000,type:'立替（後で戻る）',certainty:'高確率'},
+  {id:105,month:'2026-09',name:'富山→東京出張立替',amount:90000,type:'立替（後で戻る）',certainty:'高確率'},
+  {id:106,month:'2026-09',name:'モンゴル仮予算',amount:120000,type:'イベント',certainty:'未確定'},
+  {id:107,month:'2026-11',name:'別府・黒川温泉',amount:30000,type:'イベント',certainty:'未確定'},
 ];
 
 function ls(k,fb){try{const v=localStorage.getItem(k);return v!=null?JSON.parse(v):fb;}catch{return fb;}}
@@ -298,31 +366,57 @@ let fixedData = ls('shin_fixed',defaultFixed);
 let settings  = ls('shin_settings',defaultSettings);
 
 function weekKey(d){const dt=new Date(d);const day=(dt.getDay()+6)%7;dt.setDate(dt.getDate()-day);return dt.toISOString().slice(0,10);}
-function todayKey(){return now.toISOString().slice(0,10);}
-function thisMonthKey(){return now.toISOString().slice(0,7);}
 
+// 口座・現金残高をリアルタイム計算
+function getLiveBalances(){
+  let bank = Number(settings.balance||0);
+  let cash = Number(settings.cash||0);
+  for(const s of spends){
+    if(s.kind==='現金引出'){bank-=Number(s.amount);cash+=Number(s.amount);}
+    else if(s.kind==='支出'){
+      if(s.method==='現金') cash-=Number(s.amount);
+      else if(s.method==='デビット') bank-=Number(s.amount);
+    }
+  }
+  return {bank,cash};
+}
+
+// ---- CRUD
 function addSpend(){
   const date=document.getElementById('spendDate').value;
   const amount=Number(document.getElementById('spendAmount').value);
   const category=document.getElementById('spendCategory').value;
+  const method=document.getElementById('spendMethod').value;
   const memo=document.getElementById('spendMemo').value.trim();
   if(!date||!amount){alert('日付と金額を入力してください');return;}
-  spends.push({id:Date.now(),date,amount,category,memo});
+  spends.push({id:Date.now(),kind:'支出',date,amount,category,method,memo});
   ss('shin_spends',spends);
   document.getElementById('spendAmount').value='';
   document.getElementById('spendMemo').value='';
   render();
 }
+function addCashMove(){
+  const date=document.getElementById('cashDate').value;
+  const amount=Number(document.getElementById('cashAmount').value);
+  const memo=document.getElementById('cashMemo').value.trim();
+  if(!date||!amount){alert('日付と金額を入力してください');return;}
+  spends.push({id:Date.now(),kind:'現金引出',date,amount,category:'🏧 現金移動',method:'ATM',memo});
+  ss('shin_spends',spends);
+  document.getElementById('cashAmount').value='';
+  document.getElementById('cashMemo').value='';
+  render();
+}
 function deleteSpend(id){spends=spends.filter(s=>s.id!==id);ss('shin_spends',spends);render();}
-function clearSpends(){if(confirm('支出履歴をすべて削除しますか？')){spends=[];ss('shin_spends',spends);render();}}
+function clearSpends(){if(confirm('履歴をすべて削除しますか？')){spends=[];ss('shin_spends',spends);render();}}
 
 function addEvent(){
   const month=document.getElementById('evMonth').value;
   const name=document.getElementById('evName').value.trim();
   const amount=Number(document.getElementById('evAmount').value);
   const type=document.getElementById('evType').value;
+  const certainty=document.getElementById('evCertainty').value;
   if(!month||!name||!amount){alert('月・名称・金額を入力してください');return;}
-  events.push({id:Date.now(),month,name,amount,type});
+  events.push({id:Date.now(),month,name,amount,type,certainty});
   ss('shin_events',events);
   document.getElementById('evName').value='';
   document.getElementById('evAmount').value='';
@@ -346,24 +440,25 @@ function addFixed(){
 function deleteFixed(id){
   if(confirm('この固定費を削除しますか？')){fixedData=fixedData.filter(f=>f.id!==id);ss('shin_fixed',fixedData);render();}
 }
-
 function saveSettings(){
-  const s=Number(document.getElementById('salaryInput').value);
-  const b=Number(document.getElementById('balanceInput').value);
-  const w=Number(document.getElementById('weekBudgetInput').value);
-  if(!s||!b||!w){alert('全項目入力してください');return;}
-  settings={salary:s,balance:b,weekBudget:w};
+  const salary=Number(document.getElementById('salaryInput').value);
+  const balance=Number(document.getElementById('balanceInput').value);
+  const cash=Number(document.getElementById('cashInput').value);
+  const weekBudget=Number(document.getElementById('weekBudgetInput').value);
+  const livingBudget=Number(document.getElementById('livingBudgetInput').value);
+  if(!salary||!weekBudget){alert('給与と週予算は必須です');return;}
+  settings={salary,balance,cash,weekBudget,livingBudget};
   ss('shin_settings',settings);
   render();
   alert('保存しました');
 }
-
 function exportData(){
   const data=JSON.stringify({spends,events,fixedData,settings},null,2);
   const area=document.getElementById('exportArea');
   area.style.display='block';
-  area.innerHTML='<div class="export-area">'+data+'</div><button class="btn btn-secondary" style="margin-top:8px;" onclick="navigator.clipboard.writeText(JSON.stringify({spends,events,fixedData,settings})).then(()=>alert(\'コピーしました\'))">コピーする</button>';
+  area.innerHTML='<div class="export-area">'+data.replace(/[<>&]/g,m=>({'<':'&lt;','>':'&gt;','&':'&amp;'}[m]))+'</div><button class="btn btn-secondary" style="margin-top:8px;" onclick="doCopy()">コピーする</button>';
 }
+function doCopy(){navigator.clipboard?.writeText(JSON.stringify({spends,events,fixedData,settings})).then(()=>alert('コピーしました')).catch(()=>alert('手動でコピーしてください'));}
 function showImport(){const a=document.getElementById('importArea');a.style.display=a.style.display==='none'?'block':'none';}
 function importData(){
   try{
@@ -377,14 +472,60 @@ function importData(){
     document.getElementById('importArea').style.display='none';
   }catch{alert('データの形式が正しくありません');}
 }
-
 function goPage(id,btn){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
   btn.classList.add('active');
 }
+function certaintyPill(c){
+  const cls=c==='確定'?'ok':c==='高確率'?'warn':'danger';
+  return `<span class="pill ${cls}" style="font-size:10px;padding:2px 6px;">${c}</span>`;
+}
+function eventIcon(e){return e.type==='返金'?'↩️':e.type==='臨時収入'?'💰':e.type==='立替（後で戻る）'?'📤':e.type==='イベント'?'🎉':'💳';}
 
+// ---- シミュレーション（給与サイクル：20日〜翌月19日）
+function calcCycles(includeUncertain){
+  const todayD = now.getDate();
+  let csYear=now.getFullYear(), csMonth=now.getMonth();
+  if(todayD<20){csMonth--;if(csMonth<0){csMonth=11;csYear--;}}
+
+  const salary=Number(settings.salary||0);
+  const fixed=fixedData.reduce((a,f)=>a+Number(f.amount),0);
+  const living=Number(settings.livingBudget||60000);
+  let balance=getLiveBalances().bank;
+  const results=[];
+
+  for(let i=0;i<8;i++){
+    let y=csYear, m=csMonth+i;
+    while(m>11){m-=12;y++;}
+    const mKey=y+'-'+String(m+1).padStart(2,'0');
+    const isFirst=i===0;
+    if(!isFirst) balance+=salary;
+
+    const cycleEvs=events.filter(e=>{
+      if(e.month!==mKey) return false;
+      if(!includeUncertain && e.certainty==='未確定') return false;
+      return true;
+    });
+    const returns=cycleEvs.filter(e=>e.type==='返金'||e.type==='臨時収入').reduce((a,e)=>a+Number(e.amount),0);
+    const outs=cycleEvs.filter(e=>e.type!=='返金').reduce((a,e)=>a+Number(e.amount),0);
+    balance+=returns;
+    const startBal=balance;
+    const mFixed=isFirst?0:fixed;
+    const mLiving=isFirst?Math.min(15000,living):living;
+    balance-=mFixed+mLiving+outs;
+
+    const nextM=m===11?1:m+2;
+    const nextY=m===11?y+1:y;
+    const label=y+'年'+String(m+1)+'月20日〜'+nextY+'年'+nextM+'月19日';
+
+    results.push({mKey,label,isFirst,salary:isFirst?0:salary,returns,fixed:mFixed,living:mLiving,outs,startBal,endBal:balance,events:cycleEvs});
+  }
+  return results;
+}
+
+// ---- render
 function render(){
   renderToday();
   renderSim();
@@ -392,127 +533,124 @@ function render(){
   renderFixedPage();
   document.getElementById('salaryInput').value=settings.salary||'';
   document.getElementById('balanceInput').value=settings.balance||'';
+  document.getElementById('cashInput').value=settings.cash||'';
   document.getElementById('weekBudgetInput').value=settings.weekBudget||'';
+  document.getElementById('livingBudgetInput').value=settings.livingBudget||'';
 }
 
 function renderToday(){
-  const budget=settings.weekBudget||15000;
-  const todaySpent=spends.filter(s=>s.date===todayKey()).reduce((a,s)=>a+s.amount,0);
-  const wk=weekKey(todayKey());
-  const weekSpent=spends.filter(s=>weekKey(s.date)===wk).reduce((a,s)=>a+s.amount,0);
+  const bal=getLiveBalances();
+  const bankEl=document.getElementById('bankNow');
+  const cashEl=document.getElementById('cashNow');
+  bankEl.textContent=yenS(bal.bank);
+  bankEl.style.color=bal.bank<0?'var(--danger)':bal.bank<50000?'var(--warn)':'var(--text)';
+  cashEl.textContent=yen(bal.cash);
+  cashEl.style.color=bal.cash<0?'var(--danger)':bal.cash<5000?'var(--warn)':'var(--text)';
+
+  const budget=Number(settings.weekBudget||15000);
+  const wk=weekKey(todayISO());
+  const dailySpends=spends.filter(s=>s.kind==='支出');
+  const todaySpent=dailySpends.filter(s=>s.date===todayISO()).reduce((a,s)=>a+Number(s.amount),0);
+  const weekSpent=dailySpends.filter(s=>weekKey(s.date)===wk).reduce((a,s)=>a+Number(s.amount),0);
   const weekRem=budget-weekSpent;
   const dayLimit=2500;
+
   const pct=Math.min(todaySpent/dayLimit,1);
   const circ=201;
   document.getElementById('dayRing').style.strokeDashoffset=circ-pct*circ;
   document.getElementById('dayRing').style.stroke=pct>=1?'var(--danger)':pct>0.7?'var(--warn)':'var(--ok)';
   document.getElementById('dayPct').textContent=Math.round(pct*100)+'%';
+
   const weekPct=Math.min(weekSpent/budget*100,100);
   const remEl=document.getElementById('weekRemain');
-  remEl.textContent=yen(weekRem);
+  remEl.textContent=yenS(weekRem);
   remEl.className='big-num '+(weekRem<0?'danger':weekRem<3000?'warn':'ok');
-  const bar=document.getElementById('weekBar');
-  bar.style.width=weekPct+'%';
-  bar.className='week-bar-fill '+(weekPct>=100?'danger':weekPct>70?'warn':'');
+  document.getElementById('weekBar').style.width=weekPct+'%';
+  document.getElementById('weekBar').className='week-bar-fill '+(weekPct>=100?'danger':weekPct>70?'warn':'');
   document.getElementById('weekSpentLabel').textContent=yen(weekSpent)+'使用';
   document.getElementById('weekBudgetLabel').textContent='週'+yen(budget);
   const pill=document.getElementById('weekPill');
-  if(weekRem<0)pill.innerHTML='<span class="pill danger"><span class="pill-dot"></span>超過</span>';
-  else if(weekRem<3000)pill.innerHTML='<span class="pill warn"><span class="pill-dot"></span>残り少ない</span>';
+  if(weekRem<0) pill.innerHTML='<span class="pill danger"><span class="pill-dot"></span>超過</span>';
+  else if(weekRem<3000) pill.innerHTML='<span class="pill warn"><span class="pill-dot"></span>残り少ない</span>';
   else pill.innerHTML='<span class="pill ok"><span class="pill-dot"></span>管理内</span>';
+
   const sorted=spends.slice().reverse();
   const listEl=document.getElementById('spendList');
   if(!sorted.length){listEl.innerHTML='<div class="empty">まだ記録がありません</div>';}
-  else{listEl.innerHTML=sorted.map(s=>`
-    <div class="list-item">
-      <div class="list-icon">${s.category.split(' ')[0]||'💴'}</div>
-      <div class="list-main">
-        <div class="list-name">${s.memo||s.category}</div>
-        <div class="list-sub">${s.date} · ${s.category.split(' ').slice(1).join(' ')}</div>
-      </div>
-      <div class="list-amount out">${yen(s.amount)}</div>
-      <button class="del-btn" onclick="deleteSpend(${s.id})">×</button>
-    </div>`).join('');}
-  document.getElementById('spendTotal').textContent='合計 '+yen(spends.reduce((a,s)=>a+s.amount,0));
+  else{
+    listEl.innerHTML=sorted.map(s=>{
+      const isMove=s.kind==='現金引出';
+      const sub=isMove?`${s.date} · 口座→現金 ${s.memo?'· '+s.memo:''}`:`${s.date} · ${s.category} · ${s.method}`;
+      return `<div class="list-item">
+        <div class="list-icon">${isMove?'🏧':(s.category||'').split(' ')[0]||'💴'}</div>
+        <div class="list-main">
+          <div class="list-name">${s.memo||(isMove?'現金引き出し':s.category)}</div>
+          <div class="list-sub">${sub}</div>
+        </div>
+        <div class="list-amount ${isMove?'in':'out'}">${yen(s.amount)}</div>
+        <button class="del-btn" onclick="deleteSpend(${s.id})">×</button>
+      </div>`;
+    }).join('');
+  }
+  document.getElementById('spendTotal').textContent='支出合計 '+yen(dailySpends.reduce((a,s)=>a+Number(s.amount),0));
 }
 
 function renderSim(){
-  // 給料日サイクル：毎月20日着金。サイクル = 前月20日〜当月19日
-  const salary=settings.salary||235000;
-  const fixed=fixedData.reduce((a,f)=>a+f.amount,0);
-  const living=60000;
-  let balance=settings.balance||96482;
-
-  // 今日の日付
-  const todayD=now.getDate();
-  // 現在どのサイクル中か（20日以降なら今月サイクル、1〜19日なら先月サイクル）
-  let csYear=now.getFullYear(), csMonth=now.getMonth();
-  if(todayD<20){csMonth--;if(csMonth<0){csMonth=11;csYear--;}}
-
-  // 8サイクル分
-  const cycles=[];
-  for(let i=0;i<8;i++){
-    let y=csYear,m=csMonth+i;
-    while(m>11){m-=12;y++;}
-    cycles.push({year:y,month:m});
-  }
-
+  const normal=calcCycles(false);
+  const worst=calcCycles(true);
   let html='',alerts='';
-  for(let ci=0;ci<cycles.length;ci++){
-    const {year,month}=cycles[ci];
-    const mKey=year+'-'+String(month+1).padStart(2,'0');
-    // 給料日着金（最初のサイクルはすでに受け取り済み）
-    if(ci>0)balance+=salary;
-    // このサイクルのイベント（その月のものをそのまま使う）
-    const cycleEvs=events.filter(e=>e.month===mKey);
-    const returns=cycleEvs.filter(e=>e.type==='返金').reduce((a,e)=>a+e.amount,0);
-    const outs=cycleEvs.filter(e=>e.type!=='返金').reduce((a,e)=>a+e.amount,0);
-    balance+=returns;
-    const startBal=balance;
-    const mFixed=ci===0?0:fixed;
-    const mLiving=ci===0?15000:living;
-    balance-=mFixed+mLiving+outs;
 
-    const cls=balance<0?'danger':balance<50000?'warn':'ok';
-    const icon=balance<0?'⚠':balance<50000?'△':'○';
-    const nextM=month===11?1:month+2;
-    const nextY=month===11?year+1:year;
-    const label=year+'年'+String(month+1)+'月20日 〜 '+nextY+'年'+nextM+'月19日';
+  for(let i=0;i<normal.length;i++){
+    const n=normal[i], w=worst[i];
+    const cls=n.endBal<0?'danger':n.endBal<50000?'warn':'ok';
+    const icon=n.endBal<0?'⚠':n.endBal<50000?'△':'○';
 
-    const evTags=cycleEvs.map(e=>{
-      const isRet=e.type==='返金';
-      return `<span class="month-tag ${isRet?'pos':'neg'}">${isRet?'+':'-'}${yen(e.amount)} ${e.name}</span>`;
+    const evTags=n.events.map(e=>{
+      const isRet=e.type==='返金'||e.type==='臨時収入';
+      const tagCls=isRet?'pos':e.certainty==='未確定'?'maybe':'neg';
+      return `<span class="month-tag ${tagCls}">${e.name}${e.certainty==='確定'?'':' ('+e.certainty+')'}</span>`;
     }).join('');
+
+    // 最悪シナリオが通常より悪い場合のみ表示
+    const worstDiff = w.endBal !== n.endBal;
 
     html+=`<div class="month-row">
       <div style="display:flex;align-items:center;justify-content:space-between;">
-        <div style="font-size:13px;font-weight:600;">${label}</div>
-        <div style="font-size:16px;font-weight:700;color:var(--${cls})">${yenS(balance)}</div>
-      </div>
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
-        <div style="font-size:11px;color:var(--text2);">給料日時点 ${yenS(startBal)} → 給料日前 ${yenS(balance)}</div>
+        <div style="font-size:12px;font-weight:600;color:var(--text2);">${n.label}</div>
         <span class="pill ${cls}" style="font-size:10px;padding:2px 8px;">${icon}</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:6px;">
+        <div>
+          <div style="font-size:11px;color:var(--text3);">通常シナリオ</div>
+          <div style="font-size:20px;font-weight:700;color:var(--${cls})">${yenS(n.endBal)}</div>
+        </div>
+        ${worstDiff?`<div style="text-align:right;">
+          <div style="font-size:11px;color:var(--text3);">最悪シナリオ</div>
+          <div style="font-size:16px;font-weight:700;color:var(--${w.endBal<0?'danger':w.endBal<50000?'warn':'ok'})">${yenS(w.endBal)}</div>
+        </div>`:''}
       </div>
       ${evTags?'<div class="month-detail">'+evTags+'</div>':''}
     </div>`;
 
-    if(balance<0)alerts+=`<div class="alert danger">⚠ <b>${String(month+1)}月サイクル</b>が給料日前に赤字予測（${yenS(balance)}）。支出の見直しが必要です。</div>`;
-    else if(balance<50000)alerts+=`<div class="alert warn">△ <b>${String(month+1)}月サイクル</b>の残高が薄い（${yenS(balance)}）。立替・突発費に注意。</div>`;
+    if(n.endBal<0) alerts+=`<div class="alert danger">⚠ <b>${n.label.slice(0,8)}</b>が通常シナリオでも赤字（${yenS(n.endBal)}）。支出の見直しが必要。</div>`;
+    else if(n.endBal<50000) alerts+=`<div class="alert warn">△ <b>${n.label.slice(0,8)}</b>の残高が薄い（${yenS(n.endBal)}）。立替・突発費に注意。</div>`;
+    if(w.endBal<0&&n.endBal>=0) alerts+=`<div class="alert warn">△ <b>${n.label.slice(0,8)}</b>は未確定イベントが全部起きると赤字（${yenS(w.endBal)}）。</div>`;
   }
-  document.getElementById('monthList').innerHTML=html;
-  document.getElementById('simAlerts').innerHTML=alerts;
 
-  // 次の支払い一覧
+  if(!alerts) alerts='<div class="alert ok">○ 通常シナリオでは赤字月なし。日次2,500円ルール維持が前提。</div>';
+  document.getElementById('simAlerts').innerHTML=alerts;
+  document.getElementById('monthList').innerHTML=html;
+
   const upcoming=events.filter(e=>e.month>=thisMonthKey()).sort((a,b)=>a.month.localeCompare(b.month)).slice(0,8);
   const npEl=document.getElementById('nextPayList');
   if(!upcoming.length){npEl.innerHTML='<div class="empty">予定なし</div>';return;}
   npEl.innerHTML=upcoming.map(e=>{
-    const isRet=e.type==='返金';
+    const isRet=e.type==='返金'||e.type==='臨時収入';
     return `<div class="list-item">
-      <div class="list-icon">${isRet?'↩️':e.type==='立替（後で戻る）'?'📤':e.type==='イベント'?'🎉':'💳'}</div>
+      <div class="list-icon">${eventIcon(e)}</div>
       <div class="list-main">
         <div class="list-name">${e.name}</div>
-        <div class="list-sub">${e.month.replace('-','年')}月 · ${e.type}</div>
+        <div class="list-sub">${e.month.replace('-','年')}月 · ${e.type} · ${certaintyPill(e.certainty)}</div>
       </div>
       <div class="list-amount ${isRet?'in':'out'}">${isRet?'+':''}${yen(e.amount)}</div>
     </div>`;
@@ -524,12 +662,12 @@ function renderEvents(){
   const sorted=events.slice().sort((a,b)=>a.month.localeCompare(b.month));
   if(!sorted.length){el.innerHTML='<div class="empty">イベントなし</div>';return;}
   el.innerHTML=sorted.map(e=>{
-    const isRet=e.type==='返金';
+    const isRet=e.type==='返金'||e.type==='臨時収入';
     return `<div class="list-item">
-      <div class="list-icon">${isRet?'↩️':e.type==='立替（後で戻る）'?'📤':e.type==='イベント'?'🎉':'💳'}</div>
+      <div class="list-icon">${eventIcon(e)}</div>
       <div class="list-main">
         <div class="list-name">${e.name}</div>
-        <div class="list-sub">${e.month.replace('-','年')}月 · ${e.type}</div>
+        <div class="list-sub">${e.month.replace('-','年')}月 · ${e.type} · ${certaintyPill(e.certainty)}</div>
       </div>
       <div class="list-amount ${isRet?'in':'out'}">${isRet?'+':''}${yen(e.amount)}</div>
       <button class="del-btn" onclick="deleteEvent(${e.id})">×</button>
@@ -546,8 +684,7 @@ function renderFixedPage(){
       <div class="list-amount out">${yen(f.amount)}</div>
       <button class="del-btn" onclick="deleteFixed(${f.id})">×</button>
     </div>`).join('');
-  const total=fixedData.reduce((a,f)=>a+f.amount,0);
-  document.getElementById('fixedTotalLabel').textContent='合計 '+yen(total);
+  document.getElementById('fixedTotalLabel').textContent='合計 '+yen(fixedData.reduce((a,f)=>a+Number(f.amount),0));
 }
 
 render();
