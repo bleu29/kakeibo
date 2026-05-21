@@ -521,14 +521,7 @@ function render(){
 }
 
 function renderToday(){
-  const bal=getLiveBalances();
-  const bankEl=document.getElementById('bankNow');
-  const cashEl=document.getElementById('cashNow');
-  bankEl.textContent=yenS(bal.bank);
-  bankEl.style.color=bal.bank<0?'var(--danger)':bal.bank<50000?'var(--warn)':'var(--text)';
-  cashEl.textContent=yen(bal.cash);
-  cashEl.style.color=bal.cash<0?'var(--danger)':bal.cash<5000?'var(--warn)':'var(--text)';
-
+ 
   const budget=Number(settings.weekBudget||15000);
   const wk=weekKey(todayISO());
   const dailySpends=spends.filter(s=>s.kind==='支出');
