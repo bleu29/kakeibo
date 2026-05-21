@@ -347,15 +347,7 @@ const defaultFixed = [
   {id:9,name:'美容院積立',amount:5000,icon:'✂️'},
 ];
 const defaultSettings = {salary:235000,balance:96482,cash:0,weekBudget:15000,livingBudget:60000};
-const defaultEvents = [
-  {id:101,month:'2026-06',name:'楽天カード',amount:0,type:'カード請求',certainty:'確定'},
-  {id:102,month:'2026-07',name:'分割払い',amount:33000,type:'カード請求',certainty:'確定'},
-  {id:103,month:'2026-08',name:'分割払い',amount:33000,type:'カード請求',certainty:'確定'},
-  {id:104,month:'2026-08',name:'京都出張立替',amount:60000,type:'立替（後で戻る）',certainty:'高確率'},
-  {id:105,month:'2026-09',name:'富山→東京出張立替',amount:90000,type:'立替（後で戻る）',certainty:'高確率'},
-  {id:106,month:'2026-09',name:'モンゴル仮予算',amount:120000,type:'イベント',certainty:'未確定'},
-  {id:107,month:'2026-11',name:'別府・黒川温泉',amount:30000,type:'イベント',certainty:'未確定'},
-];
+const defaultEvents = [];
 
 function ls(k,fb){try{const v=localStorage.getItem(k);return v!=null?JSON.parse(v):fb;}catch{return fb;}}
 function ss(k,v){localStorage.setItem(k,JSON.stringify(v));}
