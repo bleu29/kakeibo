@@ -518,7 +518,7 @@ function calcCycles(includeUncertain){
 
     const nextM=m===11?1:m+2;
     const nextY=m===11?y+1:y;
-    const label=y+'年'+String(m+1)+'月20日〜'+nextY+'年'+nextM+'月19日';
+    const label=y+'.'+String(m+1);
 
     results.push({mKey,label,isFirst,salary:isFirst?0:salary,returns,fixed:mFixed,living:mLiving,outs,startBal,endBal:balance,events:cycleEvs});
   }
