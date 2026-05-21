@@ -512,7 +512,7 @@ function calcCycles(includeUncertain){
     const outs=cycleEvs.filter(e=>e.type!=='返金').reduce((a,e)=>a+Number(e.amount),0);
     balance+=returns;
     const startBal=balance;
-    const mFixed=isFirst?0:fixed;
+    const mFixed = fixed;
     const mLiving=isFirst?Math.min(15000,living):living;
     balance-=mFixed+mLiving+outs;
 
